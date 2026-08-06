@@ -1,0 +1,93 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ["./index.html", "./src/**/*.{js,jsx}"],
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          50: "#eff6ff",
+          100: "#dbeafe",
+          200: "#bfdbfe",
+          300: "#93c5fd",
+          400: "#60a5fa",
+          500: "#3b82f6",
+          600: "#2563eb",
+          700: "#1d4ed8",
+          800: "#1e40af",
+          900: "#1e3a8a",
+          950: "#172554",
+        },
+        ink: {
+          50: "#f8fafc",
+          100: "#f1f5f9",
+          200: "#e2e8f0",
+          300: "#cbd5e1",
+          400: "#94a3b8",
+          500: "#64748b",
+          600: "#475569",
+          700: "#334155",
+          800: "#1e293b",
+          900: "#111827",
+          950: "#0b1120",
+        },
+        success: {
+          50: "#ecfdf5",
+          100: "#d1fae5",
+          200: "#a7f3d0",
+          500: "#10b981",
+          600: "#059669",
+          700: "#047857",
+        },
+        warning: {
+          50: "#fffbeb",
+          100: "#fef3c7",
+          200: "#fde68a",
+          500: "#f59e0b",
+          600: "#d97706",
+          700: "#b45309",
+        },
+        danger: {
+          50: "#fef2f2",
+          100: "#fee2e2",
+          500: "#ef4444",
+          600: "#dc2626",
+          700: "#b91c1c",
+        },
+        brass: {
+          50: "#fbf5e9",
+          100: "#f5e6c4",
+          200: "#eccf8d",
+          300: "#e0b25a",
+          400: "#c98a3e",
+          500: "#b3762f",
+          600: "#8f5d25",
+        },
+        moss: {
+          50: "#eef5f2",
+          100: "#d3e6de",
+          200: "#a4c9ba",
+          300: "#6fa591",
+          400: "#42816c",
+          500: "#2f6f62",
+          600: "#245650",
+        },
+      },
+      fontFamily: {
+        display: ["'Source Serif 4'", "serif"],
+        sans: ["'Inter'", "system-ui", "sans-serif"],
+        mono: ["'IBM Plex Mono'", "monospace"],
+      },
+      boxShadow: {
+        card: "0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.06)",
+        cardHover: "0 10px 30px -6px rgb(0 0 0 / 0.12)",
+        lift: "0 20px 40px -12px rgb(37 99 235 / 0.25)",
+      },
+      borderRadius: {
+        xl2: "1rem",
+      },
+    },
+  },
+  plugins: [],
+};
+
