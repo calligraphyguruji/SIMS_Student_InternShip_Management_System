@@ -118,5 +118,16 @@ additive module:
 
 - **Frontend:** deploy the `frontend` folder to Vercel; set `VITE_API_URL` to your deployed
   backend URL.
-- **Backend:** deploy the `backend` folder to Render (or similar); set `MONGO_URI` to a MongoDB
-  Atlas connection string, and `CLIENT_URL` to your deployed frontend URL (for CORS).
+- **Backend:** deploy the `backend` folder to Render (or similar).
+  - Root directory: `backend`
+  - Build command: `npm install`
+  - Start command: `npm start`
+  - Environment variables:
+    - `NODE_ENV=production`
+    - `MONGO_URI=<your MongoDB Atlas connection string>`
+    - `JWT_SECRET=<a long random secret>`
+    - `CLIENT_URL=<your deployed frontend URL>`
+
+On Render, do not use `mongodb://127.0.0.1:27017/sims` for `MONGO_URI`; `127.0.0.1` points to
+the Render container, not your local machine. Use an Atlas URI such as
+`mongodb+srv://USER:PASSWORD@cluster0.example.mongodb.net/sims?retryWrites=true&w=majority`.

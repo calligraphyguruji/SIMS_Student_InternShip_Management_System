@@ -13,7 +13,6 @@ import applicationRoutes from "./routes/applicationRoutes.js";
 import statsRoutes from "./routes/statsRoutes.js";
 
 dotenv.config();
-connectDB();
 
 const app = express();
 const allowedOrigins = [
@@ -50,6 +49,26 @@ app.use(notFound);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5001;
-app.listen(PORT, () => {
-  console.log(`SIMS backend listening on http://localhost:${PORT}`);
+
+const startServer = async () => {
+  await connectDB();
+
+  const server = app.listen(PORT, () => {
+    console.log(`SIMS backend listening on http://localhost:${PORT}`);
+  });
+
+  server.on("error", (err) => {
+    if (err.code === "EADDRINUSE") {
+      console.error(`Port ${PORT} is already in use. Set PORT to another value or stop the existing server.`);
+      process.exit(1);
+    }
+
+    console.error(`Server error: ${err.message}`);
+    process.exit(1);
+  });
+};
+
+startServer().catch((err) => {
+  console.error(`Failed to start server: ${err.message}`);
+  process.exit(1);
 });
