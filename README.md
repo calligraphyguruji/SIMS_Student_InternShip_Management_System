@@ -43,7 +43,7 @@ sims/
 ### Prerequisites
 
 - Node.js 18+
-- MongoDB running locally (`mongodb://127.0.0.1:27017`), or a MongoDB Atlas connection string
+- MongoDB Atlas connection string
 
 ### 1. Backend
 
@@ -51,7 +51,7 @@ sims/
 cd backend
 npm install
 cp .env.example .env
-# edit .env if your MongoDB URI or JWT secret should be different
+# replace <db_password> in .env with your MongoDB Atlas database password
 npm run seed    # optional but recommended — creates one demo account per role
 npm run dev
 ```
@@ -124,10 +124,8 @@ additive module:
   - Start command: `npm start`
   - Environment variables:
     - `NODE_ENV=production`
-    - `MONGO_URI=<your MongoDB Atlas connection string>`
+    - `MONGO_URI=mongodb+srv://hiaman4046_db_user:<db_password>@sims.cw9yfgt.mongodb.net/?appName=SIMS`
     - `JWT_SECRET=<a long random secret>`
     - `CLIENT_URL=<your deployed frontend URL>`
 
-On Render, do not use `mongodb://127.0.0.1:27017/sims` for `MONGO_URI`; `127.0.0.1` points to
-the Render container, not your local machine. Use an Atlas URI such as
-`mongodb+srv://USER:PASSWORD@cluster0.example.mongodb.net/sims?retryWrites=true&w=majority`.
+On Render, replace `<db_password>` with the real MongoDB Atlas database password before deploying.

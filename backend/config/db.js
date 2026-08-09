@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const localMongoUri = "mongodb://127.0.0.1:27017/sims";
+const defaultMongoUri = "mongodb+srv://hiaman4046_db_user:Aman@2026@sims.cw9yfgt.mongodb.net/?appName=SIMS";
 
 const getMongoUri = () => {
   const uri = process.env.MONGO_URI || process.env.MONGODB_URI;
@@ -11,7 +11,7 @@ const getMongoUri = () => {
     throw new Error("MONGO_URI is required in production. Set it to your MongoDB Atlas connection string.");
   }
 
-  return localMongoUri;
+  return defaultMongoUri;
 };
 
 const connectDB = async () => {
