@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const defaultMongoUri = "mongodb+srv://hiaman4046_db_user:Aman@2026@sims.cw9yfgt.mongodb.net/?appName=SIMS";
+const defaultMongoUri = "mongodb+srv://hiaman4046_db_user:<db_user>@sims.cw9yfgt.mongodb.net/?appName=SIMS";
 
 const getMongoUri = () => {
   const uri = process.env.MONGO_URI || process.env.MONGODB_URI;
